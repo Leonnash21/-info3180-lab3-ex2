@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+    
+{% block main %}
+
+<!DOCTYPE html>
+<html>
+    
+    <head>
+    <title>Info3180-lab3</title>
+    
+    
+  </head>
+  
+  
+  <br>
+  
+        <header>
+             <h1 class="page-header">Contact Form</h1>
+        </header>
+    
+  <body>
+      
+      <p>Fill in this form to contact the site owners</p>
+      
+<form class="form-horizontal" role="form" method="post" action="/contact">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+    {{ form.hidden_tag() }}
+        <div class="form-group">
+            <label for="name" class="col-sm-2 control-label">Name:</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="Name" name="Name" placeholder="Name"/>
+                </div>
+        </div>
+      
+      
+        <div class="form-group">
+            <label for="name" class="col-sm-2 control-label">Email:</label>
+                <div class="col-md-10">
+                    
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email Address"/>
+                </div>
+        </div>
+        
+        
+        <div class ="form-group">
+            <label for="name" class="col-sm-2 control-label">Subject:</label>
+            <div class="col-md-10">
+                <input type="text" class="form-control" id="Subject" name="Subject" placeholder="Subject"/>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="name" class="col-sm-2 control-label">Message:</label>
+            <div class="col-md-10">
+                <textarea rows="6" class="form-control" id="comments" name="comments" placeholder="Your message or comment here"></textarea>
+            </div>
+        </div>
+          
+          
+        <div class="form-group">
+            <div class="col-sm-10 col-sm-offset-2">
+                
+                <button type="submit" value="Submit" class="btn btn-warning pull-right">Send</button>
+            </div>
+        </div>
+
+</form>          
+</body>
+
+</html>
+{% endblock %}
