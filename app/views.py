@@ -8,7 +8,6 @@ This file creates your application.
 from app import app
 from flask import render_template, request, redirect, url_for, flash
 from wtforms import Form, BooleanField, StringField, PasswordField, validators
-import cgi
 import smtplib
 from forms import SendForm
 
@@ -48,8 +47,7 @@ def send_email():
     msg = request.form['comments']
     message = """From: {} <{}>
     To: {} <{}> 
-    Subject: Testing SMTP
-    Be enlightened
+    Subject: 
     """
     
     message_to_send = message.format(from_name, from_addr, to_name, to_addr, subject, msg)
