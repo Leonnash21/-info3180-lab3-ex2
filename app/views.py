@@ -38,7 +38,7 @@ def contact():
         subject = request.form['Subject']
         msg = request.form['comments']
         send_email(from_name, from_addr, subject, msg)
-        flash('MESSAGE SENT')
+        flash ('MESSAGE SENT')
         return redirect(url_for('home'))
         
     """Render the website's contact page."""
@@ -47,21 +47,18 @@ def contact():
 
 def send_email(from_name, from_addr, subject, msg):
     
-    # from_name = request.form['name']
-    # from_addr =  request.form['email']
+    
     to_name = 'Leon'
-    to_addr = ''  
-    # subject = request.form['subject']
-    # msg = request.form['comments']
+    to_addr = 'leonnash2008@gmail.com'  
     message = """From: {} <{}>
     To: {} <{}> 
-    Subject: 
+    Subject: Testing form sending
     """
     
     message_to_send = message.format(from_name, from_addr, to_name, to_addr, subject, msg)
     # Credentials (if needed)
-    username = '' 
-    password = ''
+    username = 'leonnash2008@gmail.com' 
+    password = 'gcfcwxxyrphedxkt'
     # The actual mail send
     server = smtplib.SMTP('smtp.gmail.com:587')
     server.starttls()
