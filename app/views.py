@@ -30,14 +30,22 @@ def about():
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
-    form=SendForm()
-    """Render website's contact page."""
+    form = SendForm()
     if request.method == 'POST':
-        send_email()
+        
+        from_name = request.form['name']
+        from_email = request.form['email']
+        subject = request.form['subject']
+        msg = request.form['comments']
+        send_email(from_name, from_email, subject, msg)
+        flash('MESSAGE SENT')
+        return redirect(url_for('home'))
+        
+    """Render the website's contact page."""
     return render_template('contact.html', form=form)
 
 
-def send_email():
+def send_email(from_name, from_email, subject, msg):
     
     from_name = request.form['name']
     from_addr =  request.form['email']
@@ -61,8 +69,7 @@ def send_email():
     server.sendmail(from_addr, to_addr, message_to_send)
     server.quit()
     
-    flash('Your message was sent successfully')
-    return redirect(url_for('home'))
+   
     
     
 
