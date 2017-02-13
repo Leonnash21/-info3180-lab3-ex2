@@ -34,10 +34,10 @@ def contact():
     if request.method == 'POST':
         
         from_name = request.form['name']
-        from_email = request.form['email']
+        from_addr = request.form['email']
         subject = request.form['subject']
         msg = request.form['comments']
-        send_email(from_name, from_email, subject, msg)
+        send_email(from_name, from_addr, subject, msg)
         flash('MESSAGE SENT')
         return redirect(url_for('home'))
         
@@ -45,14 +45,14 @@ def contact():
     return render_template('contact.html', form=form)
 
 
-def send_email(from_name, from_email, subject, msg):
+def send_email(from_name, from_addr, subject, msg):
     
-    from_name = request.form['name']
-    from_addr =  request.form['email']
+    # from_name = request.form['name']
+    # from_addr =  request.form['email']
     to_name = 'Leon'
     to_addr = 'leonnash2008@gmail.com'  
-    subject = request.form['subject']
-    msg = request.form['comments']
+    # subject = request.form['subject']
+    # msg = request.form['comments']
     message = """From: {} <{}>
     To: {} <{}> 
     Subject: 
