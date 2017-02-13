@@ -50,7 +50,7 @@ def send_email(from_name, from_addr, subject, msg):
     # from_name = request.form['name']
     # from_addr =  request.form['email']
     to_name = 'Leon'
-    to_addr = 'leonnash2008@gmail.com'  
+    to_addr = ''  
     # subject = request.form['subject']
     # msg = request.form['comments']
     message = """From: {} <{}>
@@ -60,8 +60,8 @@ def send_email(from_name, from_addr, subject, msg):
     
     message_to_send = message.format(from_name, from_addr, to_name, to_addr, subject, msg)
     # Credentials (if needed)
-    username = 'leonnash2008@gmail.com' 
-    password = 'gcfcwxxyrphedxkt'
+    username = '' 
+    password = ''
     # The actual mail send
     server = smtplib.SMTP('smtp.gmail.com:587')
     server.starttls()
