@@ -33,9 +33,9 @@ def contact():
     form = SendForm()
     if request.method == 'POST':
         
-        from_name = request.form['name']
+        from_name = request.form['Name']
         from_addr = request.form['email']
-        subject = request.form['subject']
+        subject = request.form['Subject']
         msg = request.form['comments']
         send_email(from_name, from_addr, subject, msg)
         flash('MESSAGE SENT')
